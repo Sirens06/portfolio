@@ -1,0 +1,195 @@
+.services-wrapper {
+    margin-top: var(--section-gap);
+}
+
+.services-heading {
+    max-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.services-subtitle {
+    margin: 1rem 0 0;
+    color: color-mix(in srgb, var(--color-on-surface) 66%, var(--color-surface) 34%);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0;
+    width: min(55%, var(--content-mid));
+}
+
+.services-carousel {
+    position: relative;
+}
+
+.services-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.services-track {
+    display: flex;
+    align-items: stretch;
+    gap: 1.6rem;
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+.service-meta {
+    width: 100%;
+}
+
+.service-title {
+    margin: 0;
+    color: color-mix(in srgb, var(--color-on-surface) 92%, white 8%);
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 1.2rem + 0.5vw, 1.7rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.service-desc {
+    margin: 0.95rem 0 0;
+    color: color-mix(in srgb, var(--color-on-surface) 80%, var(--color-surface) 20%);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.65;
+    letter-spacing: -0.02em;
+}
+
+.service-hint {
+    margin: 1rem 0 0;
+    color: color-mix(in srgb, var(--color-on-surface) 60%, var(--color-surface) 40%);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+}
+
+.service-price,
+.service-timing {
+    margin: 1.2rem 0 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.service-price {
+    color: color-mix(in srgb, var(--color-on-surface) 92%, white 8%);
+}
+
+.service-timing {
+    color: var(--accent-soft);
+}
+
+.service-included-item,
+.service-not-included-item {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 0.7rem;
+    color: color-mix(in srgb, var(--color-on-surface) 72%, var(--color-surface) 28%);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+}
+
+.service-not-included-item {
+    color: color-mix(in srgb, var(--color-on-surface) 48%, var(--color-surface) 52%);
+}
+
+.service-card .button {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 1.4rem;
+}
+
+.service-card .primary-button {
+    width: 100%;
+}
+
+.service-icon {
+    flex-shrink: 0;
+    color: var(--accent-soft);
+    margin-right: 0.7rem;
+    margin-top: 0.18rem;
+}
+
+.cancel-icon {
+    flex-shrink: 0;
+    color: grey;
+    margin-right: 0.7rem;
+    margin-top: 0.18rem;
+}
+
+.arrows {
+    position: absolute;
+    top: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+}
+
+.button-arrow {
+    display: inline-block;
+    margin-left: 0.45rem;
+    font-size: 0.95em;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.presentation-button:hover .button-arrow {
+    transform: translateX(4px);
+    opacity: 0.9;
+}
+
+.arrow-left {
+    left: -2.5rem;
+    transform: translateY(-50%);
+    color: var(--accent-soft);
+    opacity: 0.8;
+    transition: 0.3s ease-in-out;
+}
+
+.arrow-right {
+    right: -2.5rem;
+    transform: translateY(-50%);
+    color: var(--accent-soft);
+    opacity: 0.8;
+    transition: 0.3s ease-in-out;
+}
+
+.primary-button {
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    font-size: 13px;
+    background-color: #6a6688;
+    font-family: var(--default-font-family);
+    letter-spacing: 0.25px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background-color: #6a6688b5;
+}
+
+@media (max-width: 960px) {
+    .service-card {
+        flex-basis: 100%;
+    }
+
+    .services-heading {
+        margin-bottom: 1.5rem;
+    }
+
+    .services-main-title,
+    .services-subtitle {
+        width: 100%;
+    }
+}

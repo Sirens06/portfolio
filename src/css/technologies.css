@@ -1,0 +1,96 @@
+.technologies-wrapper {
+    width: 100%;
+}
+
+.technologies-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.technology-section {
+    height: 100%;
+    padding: 1.5rem !important;
+}
+
+.technology-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.technology-label {
+    margin: 0;
+    color: color-mix(in srgb, var(--color-on-surface) 92%, white 8%);
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.15rem + 0.4vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.technology-desc {
+    margin: 0;
+    width: min(100%, 42ch);
+    color: color-mix(in srgb, var(--color-on-surface) 68%, var(--color-surface) 32%);
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    text-wrap: pretty;
+}
+
+.technology-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+    width: 100%;
+}
+
+.technology-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 56px;
+    padding: 0.9rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-border) 72%, white 28%);
+    border-radius: 16px;
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--app-surface) 72%, black 28%),
+            color-mix(in srgb, var(--app-surface) 88%, black 12%));
+}
+.technology-section:hover {
+    transform: none !important;
+}
+
+.technology-icon {
+    flex-shrink: 0;
+    color: var(--accent-soft);
+    font-size: 1rem;
+}
+
+.technology-name {
+    color: color-mix(in srgb, var(--color-on-surface) 84%, white 16%);
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+}
+
+@media (max-width: 960px) {
+    .technologies-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .technology-items {
+        grid-template-columns: 1fr;
+    }
+
+    .technology-desc {
+        width: 100%;
+    }
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>portfolio-sirens</title>
+    <style>
+      html {
+        background-color: #0f0f0f;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: #0f0f0f;
+        background-image:
+          radial-gradient(circle at top, rgba(61, 90, 255, 0.14), transparent 30%),
+          radial-gradient(circle at 85% 20%, rgba(255, 196, 138, 0.16), transparent 24%),
+          linear-gradient(180deg, rgba(27, 27, 27, 0.92), #0f0f0f);
+        color: #f0f0f0;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('dark');
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

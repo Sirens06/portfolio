@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ─── Custom color tokens ─────────────────────────────────────── */
+@theme {
+  /* Brand */
+  --color-brand-50:  #f0f4ff;
+  --color-brand-100: #dde8ff;
+  --color-brand-200: #c0d0ff;
+  --color-brand-300: #93acff;
+  --color-brand-400: #6080ff;
+  --color-brand-500: #3d5aff;
+  --color-brand-600: #2133f5;
+  --color-brand-700: #1a27df;
+  --color-brand-800: #1b24b4;
+  --color-brand-900: #1c258e;
+
+  /* Neutral surface tokens (light defaults) */
+  --color-surface:         #ffffff;
+  --color-surface-raised:  #f5f5f5;
+  --color-surface-overlay: #ebebeb;
+  --color-on-surface:      #111111;
+  --color-on-surface-muted:#555555;
+  --color-border:          #e0e0e0;
+  --font-display:          "Space Grotesk", "Segoe UI", sans-serif;
+  --font-mono:             "JetBrains Mono", "SFMono-Regular", "Consolas", monospace;
+}
+
+/* ─── Dark mode overrides (via class strategy) ─────────────────── */
+.dark {
+  --color-surface:         #0f0f0f;
+  --color-surface-raised:  #1a1a1a;
+  --color-surface-overlay: #252525;
+  --color-on-surface:      #f0f0f0;
+  --color-on-surface-muted:#9a9a9a;
+  --color-border:          #2e2e2e;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(circle at top, rgba(61, 90, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(255, 196, 138, 0.16), transparent 24%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 92%, white 8%), var(--color-surface));
+  background-attachment: fixed;
+  color: var(--color-on-surface);
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0) scale(0.985);
+  filter: blur(10px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-soft {
+  transform: translate3d(0, 18px, 0);
+}
+
+.reveal-right {
+  transform: translate3d(36px, 0, 0) scale(0.985);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-soft,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
