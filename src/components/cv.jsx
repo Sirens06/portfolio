@@ -292,7 +292,7 @@ function CV() {
                         <div className="cv-actions">
                             <button className="cv-btn cv-btn-secondary" onClick={() => window.history.back()}>{t.back}</button>
                             <button className="cv-btn cv-btn-secondary" onClick={() => window.print()}>{t.print}</button>
-                            <a className="cv-btn cv-btn-primary" href="public/CV.pdf" rel='no-referrer' target='_blank'>{t.download}</a>
+                            <a className="cv-btn cv-btn-primary" href="/CV.pdf" rel='no-referrer' target='_blank'>{t.download}</a>
                         </div>
                     </div>
                 </div>
