@@ -1,7 +1,6 @@
 
 import './App.css'
 import './css/custom.css'
-import './css/problems.css'
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import CV from './components/cv';

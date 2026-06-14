@@ -20,7 +20,7 @@ function Problems({ lang }) {
                 { id: 2, title: 'You have services to offer, but the message feels unclear', description: 'What you do is real, but the website does not explain it simply or guide people to act.' },
                 { id: 3, title: 'Your online image feels split across too many places', description: 'A few social pages, an old site, and inconsistent visuals make the business feel less solid than it is.' },
                 { id: 4, title: 'You spend too much time answering the same questions', description: 'Pricing, services, availability, and next steps keep coming back because the site does not do enough of that work.' },
-                { id: 5, title: 'You want something more custom than a template', description: 'You need a site that feels aligned with your brand, not something that looks like everyone else’s.' },
+                { id: 5, title: 'You want something more custom than a template', description: "You need a site that feels aligned with your brand, not something that looks like everyone else's." },
                 { id: 6, title: 'You know your business has grown, but the website has not', description: 'The quality of your work improved, but your online presence still reflects an older version of you.' }
             ]
         },
@@ -39,14 +39,23 @@ function Problems({ lang }) {
     }[lang];
 
     return (
-        <div className="problem">
-            <h1 className="help-text cont-eyebrows reveal reveal-soft" data-reveal>{copy.eyebrow}</h1>
-            <p className="help-desc cont-desc reveal" data-reveal>{copy.intro}</p>
-            <ul className="problems-container">
+        <div>
+            <h1 className="mt-[1.8rem] mb-0 text-text-muted font-display text-base font-medium tracking-[1px] uppercase reveal reveal-soft" data-reveal>
+                {copy.eyebrow}
+            </h1>
+            <p className="mt-[0.8rem] mb-[2rem] text-[color-mix(in_srgb,var(--color-accent)_68%,var(--color-surface)_32%)] font-display text-[1.75rem] font-semibold w-[min(60%,50rem)] leading-[1.5] tracking-[-0.2px] reveal" data-reveal>
+                {copy.intro}
+            </p>
+            <ul className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mt-6 items-stretch list-none p-0 m-0">
                 {copy.problems.map(p => (
-                    <li key={p.id} className="problem-item reveal" data-reveal style={{ '--reveal-delay': `${p.id * 80}ms` }}>
-                        <h2 className="p-title">{p.title}</h2>
-                        <p className="p-desc">{p.description}</p>
+                    <li
+                        key={p.id}
+                        className="border border-[var(--border)] rounded-lg flex flex-col items-start justify-start p-6 gap-2 transition-transform duration-[400ms] ease-in-out min-h-[170px] hover:-translate-y-1 reveal"
+                        data-reveal
+                        style={{ '--reveal-delay': `${p.id * 80}ms` }}
+                    >
+                        <h2 className="text-base font-display font-semibold text-text-muted self-start m-0">{p.title}</h2>
+                        <p className="text-[0.65rem] font-mono text-[color-mix(in_srgb,var(--color-on-surface)_68%,var(--color-surface)_32%)] m-0">{p.description}</p>
                     </li>
                 ))}
             </ul>

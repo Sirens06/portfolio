@@ -1,5 +1,3 @@
-import '../css/workWithMe.css';
-
 function WorkWithMe({ lang }) {
     const copy = {
         IT: {
@@ -36,20 +34,28 @@ function WorkWithMe({ lang }) {
 
     return (
         <div>
-            <div className="cont-eyebrows reveal reveal-soft" data-reveal>{copy.eyebrow}</div>
-            <div className="cont-desc reveal reveal-soft" data-reveal>{copy.intro}</div>
-            <div className="trust-points reveal reveal-soft" data-reveal>
+            <div className="mt-[1.8rem] mb-0 text-text-muted font-display text-base font-medium tracking-[1px] uppercase reveal reveal-soft" data-reveal>
+                {copy.eyebrow}
+            </div>
+            <div className="mt-[0.8rem] mb-[2rem] text-[color-mix(in_srgb,var(--color-accent)_68%,var(--color-surface)_32%)] font-display text-[1.75rem] font-semibold w-[min(60%,50rem)] leading-[1.5] tracking-[-0.2px] reveal reveal-soft" data-reveal>
+                {copy.intro}
+            </div>
+            <div className="grid grid-cols-4 gap-6 items-stretch [grid-auto-rows:1fr] max-[1200px]:grid-cols-2 max-[640px]:grid-cols-1 reveal reveal-soft" data-reveal>
                 {copy.points.map((point, index) => (
-                    <div key={index} className="trust-point cont-card">
-                        <div className='trust-right'>
-                            <div className="trust-name project-desc">{point.name}</div>
-                            <div className="trust-desc">{point.desc}</div>
+                    <div key={index} className="cont-card flex flex-col h-full p-5">
+                        <div className="flex flex-col flex-1 w-full gap-[0.2rem]">
+                            <div className="m-0 font-semibold leading-[1.35] mb-3 text-[color-mix(in_srgb,var(--color-on-surface)_92%,white_8%)] font-display text-[clamp(1.35rem,1.2rem+0.5vw,1.7rem)] tracking-[-0.04em]">
+                                {point.name}
+                            </div>
+                            <div className="m-0 w-[min(100%,34ch)] leading-[1.7] text-wrap-pretty text-[color-mix(in_srgb,var(--color-on-surface)_80%,var(--color-surface)_20%)] text-[0.98rem]">
+                                {point.desc}
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default WorkWithMe
+export default WorkWithMe;

@@ -15,24 +15,42 @@
   --color-brand-900: #1c258e;
 
   /* Neutral surface tokens (light defaults) */
-  --color-surface:         #ffffff;
-  --color-surface-raised:  #f5f5f5;
-  --color-surface-overlay: #ebebeb;
-  --color-on-surface:      #111111;
-  --color-on-surface-muted:#555555;
-  --color-border:          #e0e0e0;
-  --font-display:          "Space Grotesk", "Segoe UI", sans-serif;
-  --font-mono:             "JetBrains Mono", "SFMono-Regular", "Consolas", monospace;
+  --color-surface:          #ffffff;
+  --color-surface-raised:   #f5f5f5;
+  --color-surface-overlay:  #ebebeb;
+  --color-on-surface:       #111111;
+  --color-on-surface-muted: #555555;
+  --color-border:           #e0e0e0;
+
+  /* Accent */
+  --color-accent:        #8b7cf6;
+  --color-accent-strong: #7f72e8;
+  --color-accent-muted:  rgba(139, 124, 246, 0.2);
+  --color-text-muted:    #cec9bf;
+
+  /* Fonts */
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", "SFMono-Regular", "Consolas", monospace;
+
+  /* Font sizes (fluid) */
+  --font-size-label: clamp(0.72rem, 0.68rem + 0.18vw, 0.82rem);
+  --font-size-nav:   clamp(0.88rem, 0.84rem + 0.2vw, 0.98rem);
+  --font-size-ui:    clamp(0.88rem, 0.80rem + 0.22vw, 0.96rem);
+  --font-size-body:  clamp(1rem, 0.96rem + 0.22vw, 1.1rem);
+  --font-size-hero:  clamp(1.9rem, 1.5rem + 1.2vw, 3.6rem);
+
+  /* Spacing */
+  --spacing-section: 4.5rem;
 }
 
 /* ─── Dark mode overrides (via class strategy) ─────────────────── */
 .dark {
-  --color-surface:         #0f0f0f;
-  --color-surface-raised:  #1a1a1a;
-  --color-surface-overlay: #252525;
-  --color-on-surface:      #f0f0f0;
-  --color-on-surface-muted:#9a9a9a;
-  --color-border:          #2e2e2e;
+  --color-surface:          #0f0f0f;
+  --color-surface-raised:   #1a1a1a;
+  --color-surface-overlay:  #252525;
+  --color-on-surface:       #f0f0f0;
+  --color-on-surface-muted: #9a9a9a;
+  --color-border:           #2e2e2e;
 }
 
 /* ─── Base ─────────────────────────────────────────────────────── */
