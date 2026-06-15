@@ -40,14 +40,14 @@
     font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 500;
-    color: var(--accent-soft);
+    color: var(--color-accent);
 }
 
 .cv-location {
     margin: 0;
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--text-color);
+    color: var(--color-text-muted);
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
@@ -79,9 +79,9 @@
 }
 
 .cv-lang-btn.active {
-    background: color-mix(in srgb, var(--accent-soft) 20%, transparent 80%);
-    color: var(--accent-soft);
-    border-color: var(--accent-soft);
+    background: color-mix(in srgb, var(--color-accent) 20%, transparent 80%);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .cv-actions {
@@ -108,7 +108,7 @@
 }
 
 .cv-btn-primary {
-    background: var(--accent-soft);
+    background: var(--color-accent);
     color: #f7f7ff;
     border-color: transparent;
 }
@@ -132,7 +132,7 @@
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--text-color);
+    color: var(--color-text-muted);
     padding-bottom: 0.5rem;
     border-bottom: var(--border);
 }
@@ -141,7 +141,7 @@
 .cv-profile-text {
     margin: 0;
     font-family: var(--font-display);
-    font-size: var(--font-body);
+    font-size: var(--font-size-body);
     line-height: 1.7;
     color: color-mix(in srgb, var(--color-on-surface) 80%, transparent 20%);
 }
@@ -176,7 +176,7 @@
     font-size: 0.72rem;
     font-weight: 500;
     color: color-mix(in srgb, var(--color-on-surface) 75%, transparent 25%);
-    background: color-mix(in srgb, var(--accent-soft) 8%, transparent 92%);
+    background: color-mix(in srgb, var(--color-accent) 8%, transparent 92%);
 }
 
 /* Experience & Education */
@@ -206,13 +206,13 @@
     margin: 0.15rem 0 0;
     font-family: var(--font-mono);
     font-size: 0.78rem;
-    color: var(--text-color);
+    color: var(--color-text-muted);
 }
 
 .cv-experience-period {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--accent-soft);
+    color: var(--color-accent);
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -227,7 +227,7 @@
 
 .cv-experience-points li {
     font-family: var(--font-display);
-    font-size: var(--font-ui);
+    font-size: var(--font-size-ui);
     line-height: 1.6;
     color: color-mix(in srgb, var(--color-on-surface) 72%, transparent 28%);
 }
@@ -243,7 +243,7 @@
 
 .cv-results-list li {
     font-family: var(--font-display);
-    font-size: var(--font-ui);
+    font-size: var(--font-size-ui);
     line-height: 1.6;
     color: color-mix(in srgb, var(--color-on-surface) 72%, transparent 28%);
 }
@@ -271,7 +271,7 @@
 .cv-language-level {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--text-color);
+    color: var(--color-text-muted);
 }
 
 /* Contacts */
@@ -284,7 +284,7 @@
 .cv-contact-item {
     font-family: var(--font-mono);
     font-size: 0.82rem;
-    color: var(--accent-soft);
+    color: var(--color-accent);
     text-decoration: none;
     transition: opacity 0.2s;
 }

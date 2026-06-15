@@ -39,8 +39,20 @@
   --font-size-body:  clamp(1rem, 0.96rem + 0.22vw, 1.1rem);
   --font-size-hero:  clamp(1.9rem, 1.5rem + 1.2vw, 3.6rem);
 
+  /* App surface (light defaults) */
+  --color-app-surface:    rgba(255, 255, 255, 0.68);
+  --color-app-highlight:  rgba(255, 255, 255, 0.75);
+
+  /* Shadows */
+  --shadow-app: 0 24px 60px rgba(24, 32, 79, 0.14), 0 10px 24px rgba(24, 32, 79, 0.08);
+
   /* Spacing */
-  --spacing-section: 4.5rem;
+  --spacing-section:        4.5rem;
+  --spacing-app:            8.5rem;
+  --spacing-content-max:    58rem;
+  --spacing-content-mid:    42rem;
+  --spacing-content-narrow: 36rem;
+  --spacing-label-max:      48rem;
 }
 
 /* ─── Dark mode overrides (via class strategy) ─────────────────── */
@@ -51,6 +63,18 @@
   --color-on-surface:       #f0f0f0;
   --color-on-surface-muted: #9a9a9a;
   --color-border:           #2e2e2e;
+  --color-app-surface:      rgba(16, 18, 28, 0.72);
+  --color-app-highlight:    rgba(255, 255, 255, 0.06);
+  --shadow-app:             0 28px 80px rgba(0, 0, 0, 0.45), 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Global border token (shorthand, not a @theme token) ─────── */
+:root {
+  --border: 1px solid color-mix(in srgb, var(--color-border) 85%, white 15%);
+}
+
+.dark {
+  --border: 1px solid color-mix(in srgb, var(--color-border) 88%, white 12%);
 }
 
 /* ─── Base ─────────────────────────────────────────────────────── */

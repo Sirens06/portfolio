@@ -1,5 +1,5 @@
 .projects {
-    margin-top: var(--section-gap);
+    margin-top: var(--spacing-section);
 }
 
 .project-list {
@@ -57,7 +57,7 @@
     display: flex;
     gap: 3px;
     align-items: center;
-    color: var(--accent-soft);
+    color: var(--color-accent);
 }
 
 .features {
@@ -82,7 +82,7 @@
 }
 
 .project-status.status-completed {
-    color: var(--accent-soft);
+    color: var(--color-accent);
 }
 
 .project-button{

@@ -29,7 +29,7 @@
 
 .contact-label {
     margin: 0;
-    color: var(--text-color);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
     font-size: 0.8rem;
     font-weight: 500;
@@ -84,33 +84,33 @@
 }
 
 .contact-button-primary {
-    background-color: var(--accent-soft);
+    background-color: var(--color-accent);
     border: 1px solid transparent;
     color: #f7f7ff;
 }
 
 .contact-button-primary:hover {
-    background-color: var(--accent-soft-strong);
+    background-color: var(--color-accent-strong);
 }
 
 .contact-button-secondary {
-    border: 1px solid color-mix(in srgb, var(--accent-soft) 72%, white 28%);
-    color: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 72%, white 28%);
+    color: var(--color-accent);
     background: transparent;
 }
 
 .contact-button-secondary:hover {
-    background: color-mix(in srgb, var(--accent-soft-muted) 45%, transparent 55%);
+    background: color-mix(in srgb, var(--color-accent-muted) 45%, transparent 55%);
 }
 
 .contact-button-ghost {
-    background: color-mix(in srgb, var(--app-surface) 80%, black 20%);
+    background: color-mix(in srgb, var(--color-app-surface) 80%, black 20%);
     border: 1px solid color-mix(in srgb, var(--color-border) 72%, white 28%);
     color: color-mix(in srgb, var(--color-on-surface) 88%, white 12%);
 }
 
 .contact-button-ghost:hover {
-    background: color-mix(in srgb, var(--app-surface) 92%, black 8%);
+    background: color-mix(in srgb, var(--color-app-surface) 92%, black 8%);
 }
 
 .contact-meta {

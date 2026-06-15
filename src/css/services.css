@@ -1,5 +1,5 @@
 .services-wrapper {
-    margin-top: var(--section-gap);
+    margin-top: var(--spacing-section);
 }
 
 .services-heading {
@@ -15,7 +15,7 @@
     font-weight: 400;
     line-height: 1.7;
     letter-spacing: 0;
-    width: min(55%, var(--content-mid));
+    width: min(55%, var(--spacing-content-mid));
 }
 
 .services-carousel {
@@ -84,7 +84,7 @@
 }
 
 .service-timing {
-    color: var(--accent-soft);
+    color: var(--color-accent);
 }
 
 .service-included-item,
@@ -115,7 +115,7 @@
 
 .service-icon {
     flex-shrink: 0;
-    color: var(--accent-soft);
+    color: var(--color-accent);
     margin-right: 0.7rem;
     margin-top: 0.18rem;
 }
@@ -151,7 +151,7 @@
 .arrow-left {
     left: -2.5rem;
     transform: translateY(-50%);
-    color: var(--accent-soft);
+    color: var(--color-accent);
     opacity: 0.8;
     transition: 0.3s ease-in-out;
 }
@@ -159,7 +159,7 @@
 .arrow-right {
     right: -2.5rem;
     transform: translateY(-50%);
-    color: var(--accent-soft);
+    color: var(--color-accent);
     opacity: 0.8;
     transition: 0.3s ease-in-out;
 }
