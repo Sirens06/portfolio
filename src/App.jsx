@@ -97,12 +97,10 @@ function App() {
               <span>{nav.light}</span>
             </span>
           </button>
-          <div className='languages-toggle flex flex-row items-center justify-center gap-2'>
-            {languages.map(l => {
-              return (
-                <button key={l} onClick={() => setLang(l)} className={l === lang ? 'active' : ''}>{l}</button>
-              );
-            })}
+          <div className='languages-toggle'>
+            {languages.map(l => (
+              <button key={l} onClick={() => setLang(l)} className={`mode-toggle-option ${l === lang ? 'is-active' : ''}`}>{l}</button>
+            ))}
           </div>
         </div>
       </nav>

@@ -57,6 +57,13 @@
     border-radius: 16px;
     background:
         linear-gradient(180deg,
+            color-mix(in srgb, var(--color-surface-overlay) 80%, var(--color-accent) 20%),
+            color-mix(in srgb, var(--color-surface-overlay) 92%, var(--color-accent) 8%));
+}
+
+.dark .technology-item {
+    background:
+        linear-gradient(180deg,
             color-mix(in srgb, var(--color-app-surface) 72%, black 28%),
             color-mix(in srgb, var(--color-app-surface) 88%, black 12%));
 }
