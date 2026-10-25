@@ -5,7 +5,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import CV from './components/cv';
 import Navbar from './components/navbar';
 import PortfolioPage from './pages/PortfolioPage';
-import FreelancePage from './pages/FreelancePage';
+// import FreelancePage from './pages/FreelancePage';
 
 const LANGUAGES = ['IT', 'EN', 'FR'];
 
@@ -86,7 +86,7 @@ function App() {
   return (
     <Routes>
       <Route path="/cv" element={<CV initialLang={lang} />} />
-      <Route path="/freelance" element={shell(<FreelancePage lang={lang} />)} />
+      {/* <Route path="/freelance" element={shell(<FreelancePage lang={lang} />)} /> */}
       <Route path="*" element={shell(<PortfolioPage lang={lang} />)} />
     </Routes>
   )

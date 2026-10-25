@@ -72,9 +72,9 @@ function Navbar({ lang, setLang, languages, dark, toggleDark }) {
                     <NavLink to="/" end onClick={() => setOpen(false)} role="tab" aria-selected={!isFreelance} className={`view-switch-option ${!isFreelance ? 'is-active' : ''}`}>
                         {t.portfolio}
                     </NavLink>
-                    <NavLink to="/freelance" onClick={() => setOpen(false)} role="tab" aria-selected={isFreelance} className={`view-switch-option ${isFreelance ? 'is-active' : ''}`}>
+                    {/* <NavLink to="/freelance" onClick={() => setOpen(false)} role="tab" aria-selected={isFreelance} className={`view-switch-option ${isFreelance ? 'is-active' : ''}`}>
                         {t.freelance}
-                    </NavLink>
+                    </NavLink> */}
                 </div>
 
                 <button
