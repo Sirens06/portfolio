@@ -1,11 +1,12 @@
 import Button from "./buttons";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import '../css/services.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmark, faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons';
 
 function Services({ lang }) {
-    const [startIndex, setStartIndex] = useState(0);
+    const trackRef = useRef(null);
+    const [edges, setEdges] = useState({ start: true, end: false });
     const copy = {
         IT: {
             eyebrow: "Servizi e pacchetti",
@@ -125,28 +126,54 @@ function Services({ lang }) {
             buttonText: "I want to refresh my site",
         },
     ];
-    const maxIndex = Math.max(services.length - 3, 0);
-    const translatePercentage = startIndex * (100 / 3);
+
+    // Native horizontal scroll with snap: swipeable on touch screens,
+    // arrow buttons move one card at a time on any screen size.
+    const updateEdges = () => {
+        const el = trackRef.current;
+        if (!el) return;
+        setEdges({
+            start: el.scrollLeft <= 4,
+            end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 4,
+        });
+    };
+
+    useEffect(() => {
+        updateEdges();
+        window.addEventListener('resize', updateEdges);
+        return () => window.removeEventListener('resize', updateEdges);
+    }, []);
+
+    const scrollByCard = (direction) => {
+        const el = trackRef.current;
+        if (!el) return;
+        const card = el.querySelector('.service-card');
+        const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
+        const step = card ? card.getBoundingClientRect().width + gap : el.clientWidth;
+        el.scrollBy({ left: direction * step, behavior: 'smooth' });
+    };
 
     return (
         <section className="services-wrapper">
             <div className="services-heading">
                 <p className="services-eyebrow cont-eyebrows reveal reveal-soft" data-reveal>{copy.eyebrow}</p>
                 <h2 className="services-main-title cont-desc reveal" data-reveal>{copy.title}</h2>
-                <p className="services-subtitle reveal" data-reveal>{copy.subtitle}</p>
+                <div className="services-heading-row">
+                    <p className="services-subtitle reveal" data-reveal>{copy.subtitle}</p>
+                    <div className="services-arrows">
+                        <button className="services-arrow" onClick={() => scrollByCard(-1)} disabled={edges.start} aria-label="Previous package">
+                            <FontAwesomeIcon icon={faLessThan} />
+                        </button>
+                        <button className="services-arrow" onClick={() => scrollByCard(1)} disabled={edges.end} aria-label="Next package">
+                            <FontAwesomeIcon icon={faGreaterThan} />
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div className="services-carousel">
-                <FontAwesomeIcon
-                    icon={faLessThan}
-                    className="arrows arrow-left"
-                    onClick={() => setStartIndex(prev => Math.max(prev - 1, 0))}
-                />
                 <div className="services-viewport">
-                    <div
-                        className="services-track"
-                        style={{ transform: `translateX(-${translatePercentage}%)` }}
-                    >
+                    <div className="services-track" ref={trackRef} onScroll={updateEdges}>
                         {services.map((service, index) => (
                             <div
                                 key={index}
@@ -173,16 +200,11 @@ function Services({ lang }) {
                                         {item}
                                     </div>
                                 ))}
-                                <Button>{service.buttonText}</Button>
+                                <Button href="#contact">{service.buttonText}</Button>
                             </div>
                         ))}
                     </div>
                 </div>
-                <FontAwesomeIcon
-                    icon={faGreaterThan}
-                    className="arrows arrow-right"
-                    onClick={() => setStartIndex(prev => Math.min(prev + 1, maxIndex))}
-                />
             </div>
         </section>
     )

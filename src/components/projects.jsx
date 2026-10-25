@@ -114,7 +114,7 @@ function Projects({ lang }) {
         }
     }
     return (
-        <div className="projects">
+        <div>
             <h2 className='project-eyebrows cont-eyebrows reveal reveal-soft' data-reveal>{sectionCopy.eyebrow}</h2>
             <p className='project-main-title cont-desc reveal' data-reveal>{sectionCopy.intro}</p>
             <div className="project-list">
@@ -142,13 +142,13 @@ function Projects({ lang }) {
                             <p className='type'>{project.type}</p>
                         </div>
                         <p className={`project-status ${getStatusClass(project.status)}`}>{project.status}</p>
-                        <a href={project.url} target="_blank" rel="noopener noreferrer">
-                            <Button className="project-button" data-url={project.url}>{project.buttonText}</Button>
-                        </a>
+                        {project.url && (
+                            <Button className="project-button" href={project.url}>{project.buttonText}</Button>
+                        )}
                     </div>
                 ))}
             </div>
-        </div >
+        </div>
     )
 }
 

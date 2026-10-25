@@ -104,8 +104,11 @@ select {
   font: inherit;
 }
 
-a {
-  color: inherit;
+/* In the base layer so Tailwind text-* utilities on links can override it */
+@layer base {
+  a {
+    color: inherit;
+  }
 }
 
 .reveal {
