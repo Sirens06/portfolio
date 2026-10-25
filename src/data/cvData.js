@@ -21,8 +21,8 @@ export const cvData = {
                     company: 'Sibylla S.r.l. | Roma, IT',
                     period: 'Dicembre 2025 – Presente',
                     points: [
-                        "Sviluppo e manutenzione di interfacce web per il prodotto principale dell'azienda utilizzando HTML, CSS, jQuery, Bootstrap e Git",
-                        "Collaborazione con il team per migliorare la UX/UI delle componenti front-end nell'ambito di un prodotto software per il settore hospitality/turismo"
+                        "Sviluppo e manutenzione dell’interfaccia web del prodotto principale dell’azienda, utilizzando React, TypeScript, Tailwind CSS e Git per il versionamento del codice.",
+                        "Collaboro con il team per migliorare la UX/UI dei componenti front-end di un prodotto software per il settore hospitality/turismo."
                     ]
                 },
                 {
@@ -106,7 +106,7 @@ export const cvData = {
                     company: 'Sibylla S.r.l. | Rome, IT',
                     period: 'December 2025 – Present',
                     points: [
-                        "Development and maintenance of web interfaces for the company's main product using HTML, CSS, jQuery, Bootstrap and Git",
+                        "Development and maintenance of the web interface for the company’s main product, using React, TypeScript, Tailwind CSS and Git for version control. ",
                         "Collaboration with the team to improve front-end UX/UI components for a hospitality/tourism software product"
                     ]
                 },
@@ -191,8 +191,8 @@ export const cvData = {
                     company: 'Sibylla S.r.l. | Rome, IT',
                     period: 'Décembre 2025 – Présent',
                     points: [
-                        "Développement et maintenance d'interfaces web pour le produit principal de l'entreprise avec HTML, CSS, jQuery, Bootstrap et Git",
-                        "Collaboration avec l'équipe pour améliorer les composants UX/UI front-end d'un logiciel pour le secteur hospitality/tourisme"
+                        "Développement et maintenance de l’interface web du produit principal de l’entreprise, avec React, TypeScript, Tailwind CSS et Git pour le versionnement du code.",
+                        "Je collabore avec l’équipe pour améliorer l’UX/UI des composants front-end d’un produit logiciel dans le secteur de l’hôtellerie et du tourisme."
                     ]
                 },
                 {
