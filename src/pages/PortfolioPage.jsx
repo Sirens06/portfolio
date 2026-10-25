@@ -5,7 +5,7 @@ import Experience from '../components/experience';
 import Projects from '../components/projects';
 import Technologies from '../components/technologies';
 import Contact from '../components/contact';
-import FreelanceTeaser from '../components/freelanceTeaser';
+// import FreelanceTeaser from '../components/freelanceTeaser';
 
 // The "hire me" view: who I am, where I worked, what I built. No pricing.
 function PortfolioPage({ lang }) {
@@ -32,9 +32,9 @@ function PortfolioPage({ lang }) {
             <section className="section" id="contact">
                 <Contact lang={lang} variant="portfolio" />
             </section>
-            <section className="section">
+            {/* <section className="section">
                 <FreelanceTeaser lang={lang} />
-            </section>
+            </section> */}
         </main>
     );
 }

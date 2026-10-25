@@ -7,5 +7,5 @@ export const links = {
     whatsapp: 'https://wa.me/393000000000?text=Hi%20Alessandro%2C%20I%27d%20like%20to%20talk%20about%20my%20website.',
     // The freelance contact section used a different address in the original code.
     freelanceEmail: 'arutini91@gmail.com',
-    cvPdf: '/CV.pdf',
+    cvPdf: '/CV-10.pdf',
 };
