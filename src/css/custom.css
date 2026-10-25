@@ -75,7 +75,8 @@
         linear-gradient(145deg, var(--color-app-highlight), transparent 38%);
     border-radius: 28px;
     box-shadow: var(--shadow-app);
-    overflow: hidden;
+    /* clip (not hidden) so the sticky navbar keeps working */
+    overflow: clip;
 }
 
 .App::before {
@@ -89,23 +90,124 @@
     border-radius: inherit;
 }
 
+/* ─── Navbar ───────────────────────────────────────────────────── */
 .navbar {
+    position: sticky;
+    top: 0.75rem;
+    z-index: 50;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
-    padding: 0.95rem 1.1rem;
+    gap: 1rem;
+    padding: 0.7rem 0.9rem;
     margin: 0 auto;
-    background: color-mix(in srgb, var(--color-app-surface) 78%, transparent 22%);
-    backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--color-app-surface) 86%, transparent 14%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: var(--border);
-    border-radius: 16px;
+    border-radius: 18px;
+}
+
+.dark .navbar {
+    background: color-mix(in srgb, #10121c 88%, transparent 12%);
+}
+
+.navbar-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.nav-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-strong));
+    color: #f7f7ff;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+}
+
+/* Portfolio | Freelance switch */
+.view-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.25rem;
+    border: 1px solid color-mix(in srgb, var(--color-border) 74%, white 26%);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface-overlay) 85%, var(--color-accent) 15%);
+}
+
+.dark .view-switch {
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--color-app-surface) 72%, black 28%),
+            color-mix(in srgb, var(--color-app-surface) 88%, black 12%));
+}
+
+.view-switch-option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    color: color-mix(in srgb, var(--color-on-surface) 66%, var(--color-surface) 34%);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-ui);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.view-switch-option:hover {
+    color: var(--color-on-surface);
+}
+
+.view-switch-option.is-active {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-strong));
+    color: #f7f7ff;
+    box-shadow: 0 6px 16px rgba(127, 114, 232, 0.35);
+}
+
+.nav-menu-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+    border: 1px solid color-mix(in srgb, var(--color-border) 74%, white 26%);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--color-on-surface);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.nav-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.15rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -115,7 +217,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 0.85rem;
+    padding: 0.5rem 0.7rem;
     border-radius: 999px;
     background: transparent;
     color: color-mix(in srgb, var(--color-on-surface) 84%, var(--color-surface) 16%);
@@ -124,6 +226,7 @@
     font-weight: 500;
     letter-spacing: -0.02em;
     text-decoration: none;
+    white-space: nowrap;
     transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -134,7 +237,7 @@
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.6rem;
     font-family: var(--font-mono);
     font-size: var(--font-size-ui);
     letter-spacing: -0.02em;
@@ -144,8 +247,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    flex-shrink: 0;
     border: 1px solid color-mix(in srgb, var(--color-border) 74%, white 26%);
     border-radius: 999px;
     background: color-mix(in srgb, var(--color-surface-overlay) 85%, var(--color-accent) 15%);
@@ -163,6 +267,10 @@
 
 .nav-icon-link:hover {
     transform: translateY(-2px);
+    color: var(--color-accent);
+}
+
+.nav-icon-link.is-whatsapp:hover {
     color: #25d366;
 }
 
@@ -179,17 +287,19 @@
     cursor: pointer;
 }
 
-.mode-toggle {
+.mode-toggle,
+.languages-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.28rem;
+    gap: 0.2rem;
+    padding: 0.25rem;
     border: 1px solid color-mix(in srgb, var(--color-border) 74%, white 26%);
     border-radius: 999px;
     background: color-mix(in srgb, var(--color-surface-overlay) 85%, var(--color-accent) 15%);
 }
 
-.dark .mode-toggle {
+.dark .mode-toggle,
+.dark .languages-toggle {
     background:
         linear-gradient(180deg,
             color-mix(in srgb, var(--color-app-surface) 72%, black 28%),
@@ -200,7 +310,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.5rem 0.8rem;
+    padding: 0.45rem 0.7rem;
     border-radius: 999px;
     color: color-mix(in srgb, var(--color-on-surface) 62%, var(--color-surface) 38%);
     transition: background-color 0.25s ease, color 0.25s ease;
@@ -216,21 +326,103 @@
     color: #f7f7ff;
 }
 
-.languages-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.28rem;
-    border: 1px solid color-mix(in srgb, var(--color-border) 74%, white 26%);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-surface-overlay) 85%, var(--color-accent) 15%);
+/* On desktop: theme toggle shows icons only, social icons live in the
+   Contact section instead — keeps the bar on a single line */
+@media (min-width: 1281px) {
+    .nav-brand,
+    .nav-actions .nav-icon-link {
+        display: none;
+    }
+
+    .nav-links a {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .mode-toggle-text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
 }
 
-.dark .languages-toggle {
-    background:
-        linear-gradient(180deg,
-            color-mix(in srgb, var(--color-app-surface) 72%, black 28%),
-            color-mix(in srgb, var(--color-app-surface) 88%, black 12%));
+/* Compact bar + dropdown menu on tablets and phones */
+@media (max-width: 1280px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .navbar-bar {
+        justify-content: space-between;
+    }
+
+    .nav-menu-button {
+        display: inline-flex;
+    }
+
+    /* Dropdown overlays the page instead of pushing it down */
+    .nav-panel {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        max-height: calc(100dvh - 7rem);
+        overflow-y: auto;
+        padding: 0.9rem;
+        border: var(--border);
+        border-radius: 18px;
+        background: color-mix(in srgb, var(--color-surface) 94%, var(--color-accent) 6%);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .navbar.is-open .nav-panel {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.1rem;
+    }
+
+    .nav-links a {
+        justify-content: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem 0.8rem;
+        border-radius: 12px;
+        font-size: 1rem;
+    }
+
+    .nav-actions {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar-bar {
+        gap: 0.5rem;
+    }
+
+    .view-switch-option {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.82rem;
+    }
+
+    .nav-brand,
+    .nav-menu-button {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
 }
 
 .content {
@@ -239,7 +431,7 @@
 
 .hero-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     align-items: start;
     gap: 1.4rem;
 }
@@ -250,6 +442,7 @@
 
 .frontend-showcase {
     position: relative;
+    min-width: 0;
     margin-left: -0.5rem;
 }
 
@@ -439,11 +632,16 @@
     transform: rotate(5deg);
 }
 
-.steps {
-    margin-top: var(--spacing-section);
+/* Light theme: softer hero label pill */
+:root:not(.dark) .hero-label {
+    background: color-mix(in srgb, var(--color-app-surface) 80%, var(--color-accent) 12%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 6px 14px rgba(24, 32, 79, 0.08);
+    color: color-mix(in srgb, var(--color-on-surface) 80%, var(--color-accent) 20%);
 }
 
-.work-with-me{
+/* ─── Section rhythm ───────────────────────────────────────────── */
+.section,
+.problem-section {
     margin-top: var(--spacing-section);
 }
 
@@ -452,14 +650,70 @@
     cursor: default;
 }
 
-.technologies{
-    margin-top: var(--spacing-section);
+.hero-secondary-button {
+    color: color-mix(in srgb, var(--color-on-surface) 92%, white 8%);
+    background: color-mix(in srgb, var(--color-app-surface) 82%, transparent 18%);
+    transition: background-color 0.25s ease;
 }
 
-.contact {
-    margin-top: var(--spacing-section);
+.dark .hero-secondary-button {
+    background: color-mix(in srgb, var(--color-app-surface) 82%, black 18%);
 }
 
+.hero-secondary-button:hover {
+    background: color-mix(in srgb, var(--color-accent-muted) 45%, transparent 55%);
+}
+
+/* ─── Freelance teaser (bottom of the Portfolio tab) ──────────── */
+.freelance-teaser {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px dashed color-mix(in srgb, var(--color-accent) 55%, transparent 45%);
+    border-radius: 22px;
+}
+
+.freelance-teaser-label {
+    margin: 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.freelance-teaser-text {
+    margin: 0.4rem 0 0;
+    max-width: 46rem;
+    color: color-mix(in srgb, var(--color-on-surface) 74%, var(--color-surface) 26%);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.freelance-teaser-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 72%, white 28%);
+    border-radius: 14px;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.25s ease;
+}
+
+.freelance-teaser-link:hover {
+    background: color-mix(in srgb, var(--color-accent-muted) 45%, transparent 55%);
+}
+
+/* ─── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 1440px) {
     :root {
         --spacing-app: 4rem !important;
@@ -471,70 +725,106 @@
 }
 
 @media (max-width: 900px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+    :root {
+        --spacing-app: 2rem !important;
     }
 
-    .nav-actions {
+    .cont-desc {
         width: 100%;
-        justify-content: space-between;
-    }
-
-    .presentation-title,
-    .presentation-description {
-        width: 100%;
-        max-width: none;
-    }
-
-    .trust-points {
-        grid-template-columns: 1fr;
-        gap: 0.7rem;
+        font-size: 1.5rem;
+        line-height: 1.4;
     }
 
     .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 1.4rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
     }
 
     .frontend-showcase {
-        padding-top: 0;
         margin-left: 0;
+    }
+
+    .cont-card {
+        flex-basis: auto;
     }
 }
 
 @media (max-width: 640px) {
+    :root {
+        --spacing-section: 3.25rem;
+    }
+
     .App {
-        padding: 1.25rem;
-        border-radius: 20px;
+        padding: 0.75rem 1rem 2rem;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .App::before {
+        display: none;
     }
 
     .navbar {
-        padding: 0.85rem 0.9rem;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        gap: 0.25rem;
+        top: 0.5rem;
+        padding: 0.55rem 0.6rem;
+        border-radius: 16px;
     }
 
     .content {
-        margin-top: 1.4rem;
+        margin-top: 1.5rem;
     }
 
-    .presentation {
-        margin-top: 1.2rem;
+    .cont-eyebrows {
+        margin-top: 0;
+        font-size: 0.85rem;
     }
 
-    .label {
-        white-space: normal;
-        text-align: center;
-        line-height: 1.4;
+    .cont-desc {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
     }
 
-    .buttons-container,
-    .trust-points {
-        flex-direction: column;
-        align-items: flex-start;
+    .cont-card {
+        padding: 1.25rem;
+        border-radius: 18px;
+    }
+
+    .hero-title {
+        max-width: none;
+        font-size: clamp(2.1rem, 9vw, 2.6rem);
+        line-height: 1;
+    }
+
+    .hero-buttons > * {
+        flex: 1 1 100%;
+    }
+
+    .hero-trust {
+        grid-template-columns: 1fr;
+    }
+
+    .code-line {
+        font-size: 0.78rem;
+        overflow-wrap: anywhere;
+    }
+
+    .preview-panel {
+        min-height: 17rem;
+    }
+
+    .stack-card {
+        min-width: 6.2rem;
+        padding: 0.65rem 0.8rem;
+        font-size: 0.7rem;
+    }
+
+    .freelance-teaser {
+        padding: 1.25rem;
+    }
+
+    .freelance-teaser-link {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
     }
 }

@@ -1,21 +1,54 @@
-.services-wrapper {
-    margin-top: var(--spacing-section);
-}
-
 .services-heading {
     max-width: 100%;
     margin-bottom: 2rem;
 }
 
+.services-heading-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
 .services-subtitle {
-    margin: 1rem 0 0;
+    margin: 0;
     color: color-mix(in srgb, var(--color-on-surface) 66%, var(--color-surface) 34%);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.78rem;
     font-weight: 400;
     line-height: 1.7;
     letter-spacing: 0;
     width: min(55%, var(--spacing-content-mid));
+}
+
+.services-arrows {
+    display: flex;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.services-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 60%, transparent 40%);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease, opacity 0.25s ease;
+}
+
+.services-arrow:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-accent-muted) 45%, transparent 55%);
+}
+
+.services-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
 }
 
 .services-carousel {
@@ -23,16 +56,29 @@
 }
 
 .services-viewport {
-    overflow: hidden;
     width: 100%;
 }
 
+/* Swipeable track: native scroll + snap */
 .services-track {
+    --services-gap: 1.6rem;
     display: flex;
     align-items: stretch;
-    gap: 1.6rem;
-    transition: transform 0.45s ease;
-    will-change: transform;
+    gap: var(--services-gap);
+    padding: 0.5rem 0 1rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.services-track::-webkit-scrollbar {
+    display: none;
+}
+
+.services-track .service-card {
+    flex: 0 0 calc((100% - 2 * var(--services-gap)) / 3);
+    scroll-snap-align: start;
 }
 
 .service-meta {
@@ -127,13 +173,34 @@
     margin-top: 0.18rem;
 }
 
-.arrows {
-    position: absolute;
-    top: 50%;
-    padding: 0.5rem;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    z-index: 2;
+.button-arrow {
+    display: inline-block;
+    margin-left: 0.45rem;
+    font-size: 0.95em;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.presentation-button:hover .button-arrow {
+    transform: translateX(4px);
+    opacity: 0.9;
+}
+
+.primary-button {
+    width: 100%;
+}
+
+.service-icon {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    margin-right: 0.7rem;
+    margin-top: 0.18rem;
+}
+
+.cancel-icon {
+    flex-shrink: 0;
+    color: grey;
+    margin-right: 0.7rem;
+    margin-top: 0.18rem;
 }
 
 .button-arrow {
@@ -179,17 +246,37 @@
     background-color: #6a6688b5;
 }
 
-@media (max-width: 960px) {
-    .service-card {
-        flex-basis: 100%;
+@media (max-width: 1100px) {
+    .services-track .service-card {
+        flex-basis: calc((100% - var(--services-gap)) / 2);
+    }
+}
+
+@media (max-width: 700px) {
+    .services-track {
+        --services-gap: 1rem;
+    }
+
+    /* show a slice of the next card so it's clear you can swipe */
+    .services-track .service-card {
+        flex-basis: 86%;
     }
 
     .services-heading {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
     }
 
-    .services-main-title,
+    .services-heading-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
     .services-subtitle {
         width: 100%;
+    }
+
+    .services-arrows {
+        justify-content: flex-end;
     }
 }

@@ -68,4 +68,13 @@
     .step-item {
         min-height: auto;
     }
+
+    .step-name,
+    .step-desc {
+        width: 100%;
+    }
+
+    .step-number {
+        font-size: 1.6rem;
+    }
 }

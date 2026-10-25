@@ -40,22 +40,22 @@ function Problems({ lang }) {
 
     return (
         <div>
-            <h1 className="mt-[1.8rem] mb-0 text-text-muted font-display text-base font-medium tracking-[1px] uppercase reveal reveal-soft" data-reveal>
+            <p className="cont-eyebrows reveal reveal-soft" data-reveal>
                 {copy.eyebrow}
-            </h1>
-            <p className="mt-[0.8rem] mb-[2rem] text-[color-mix(in_srgb,var(--color-accent)_68%,var(--color-surface)_32%)] font-display text-[1.75rem] font-semibold w-[min(60%,50rem)] leading-[1.5] tracking-[-0.2px] reveal" data-reveal>
+            </p>
+            <p className="cont-desc reveal" data-reveal>
                 {copy.intro}
             </p>
-            <ul className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mt-6 items-stretch list-none p-0 m-0">
+            <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] max-[640px]:gap-4 gap-6 mt-6 items-stretch list-none p-0 m-0">
                 {copy.problems.map(p => (
                     <li
                         key={p.id}
-                        className="border border-[var(--border)] rounded-lg flex flex-col items-start justify-start p-6 gap-2 transition-transform duration-[400ms] ease-in-out min-h-[170px] hover:-translate-y-1 reveal"
+                        className="problem-card border border-[var(--border)] rounded-lg flex flex-col items-start justify-start p-6 gap-2 transition-transform duration-[400ms] ease-in-out min-h-[150px] max-[640px]:min-h-0 max-[640px]:p-5 hover:-translate-y-1 reveal"
                         data-reveal
                         style={{ '--reveal-delay': `${p.id * 80}ms` }}
                     >
                         <h2 className="text-base font-display font-semibold text-text-muted self-start m-0">{p.title}</h2>
-                        <p className="text-[0.65rem] font-mono text-[color-mix(in_srgb,var(--color-on-surface)_68%,var(--color-surface)_32%)] m-0">{p.description}</p>
+                        <p className="text-[0.78rem] leading-[1.6] font-mono text-[color-mix(in_srgb,var(--color-on-surface)_68%,var(--color-surface)_32%)] m-0">{p.description}</p>
                     </li>
                 ))}
             </ul>

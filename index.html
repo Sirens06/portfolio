@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio-sirens</title>
+    <title>Alessandro Rutini — Frontend Developer</title>
+    <meta name="description" content="Alessandro Rutini, Frontend Developer based in Rome. Portfolio, experience, projects and freelance web services." />
+    <meta name="theme-color" content="#0f0f0f" />
     <style>
       html {
         background-color: #0f0f0f;
@@ -25,7 +27,12 @@
       }
     </style>
     <script>
-      document.documentElement.classList.add('dark');
+      // Apply the saved theme before React loads, to avoid a flash.
+      try {
+        if (localStorage.getItem('theme') !== 'light') document.documentElement.classList.add('dark');
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
     </script>
   </head>
   <body>
